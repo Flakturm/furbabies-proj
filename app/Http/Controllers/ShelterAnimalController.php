@@ -14,7 +14,7 @@ use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 class ShelterAnimalController extends Controller
 {
     private $client;
-    private $client_uri = 'http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx';
+    private $client_uri;
     // animals per page
     private $items_per_page = 10;
     // maximum random page
@@ -71,6 +71,7 @@ class ShelterAnimalController extends Controller
     {
         // Create a Custom Cached Guzzle Client
         $this->client = $this->getGuzzleFileCachedClient();
+        $this->client_uri = env('CLIENT_URI');
         // preset filter
         $this->filter = 'animal_status+like+' . $this->animal_status;
     }
