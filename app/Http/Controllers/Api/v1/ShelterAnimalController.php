@@ -117,7 +117,6 @@ class ShelterAnimalController extends Controller
             $this->filter .= '+and+' . $filter;
         }
 
-        // echo $this->filter;
         $params = [
             'query' => [
                 '$top'      => $this->items_per_page,
@@ -130,12 +129,10 @@ class ShelterAnimalController extends Controller
 
         if ( count( json_decode( $response->getBody() ) ) )
         {
-            // dump(json_decode( $response->getBody() ));
             return $response->getBody();
         }
         else
         {
-            // echo "empty";
             return response()->json([
                 'success' => false
             ]);
