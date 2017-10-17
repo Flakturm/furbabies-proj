@@ -6,6 +6,18 @@
  */
 
 require('./bootstrap');
-window.$ = window.jQuery = require('jquery');
-window.nprogress = require('nprogress');
-window.select2 = require('select2');
+window.NProgress = require('nprogress');
+window.Select2 = require('select2');
+
+// Show the progress bar
+NProgress.start();
+// Trigger finish when page fully loaded
+NProgress.done();
+// Trigger bar when exiting the page
+$(window).on('beforeunload', function(){
+    NProgress.start();
+ });
+
+$(function () {
+
+});
