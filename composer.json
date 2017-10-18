@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "kevinrob/guzzle-cache-middleware": "^2.1",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
         "symfony/cache": "^3.3"
