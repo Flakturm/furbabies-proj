@@ -55,7 +55,9 @@
                                     Login
                                 </button>
 
-                                <a href="/login/github"  class="btn btn-default btn-md">Log in with Github</a>
+                                <a class="btn btn-default btn-md" href="{{ route('login.redirect', 'google') }}">Log in with Google +</a>
+                                <a class="btn btn-default btn-md" href="{{ route('login.redirect', 'facebook') }}">Log in with Facebook</a>
+                                <a class="btn btn-default btn-md" href="{{ route('login.redirect', 'github') }}">Log in with Github</a>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?

@@ -16,7 +16,7 @@
             @else
             <li class="nav-item navbar-nav dropdown my-auto">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ HTML::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded', 'width' => 40, 'height' => 40 ] ) }}
+                    {{ HTML::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded' ] ) }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">@lang('navs.general.favourites')</a>
