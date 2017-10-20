@@ -15,13 +15,14 @@ return [
 
     'general' => [
         'home' => '首頁',
-        'logout' => '退出',
+        'logout' => '登出',
+        'favourites' => '我的最愛',
     ],
 
     'frontend' => [
         'contact' => 'Contact',
         'dashboard' => '儀表板',
-        'login' => '登錄',
+        'login' => '登入',
         'macros' => '宏',
         'register' => '註冊',
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Socialite;
 
 class SocialAccountController extends Controller
 {
@@ -14,7 +15,7 @@ class SocialAccountController extends Controller
      */
     public function redirectToProvider( $provider )
     {
-        return \Socialite::driver( $provider )->redirect();
+        return Socialite::driver( $provider )->redirect();
     }
 
     /**
@@ -25,7 +26,7 @@ class SocialAccountController extends Controller
     public function handleProviderCallback( \App\SocialAccountService $accountService, $provider )
     {
         try {
-            $user = \Socialite::with( $provider )->user();
+            $user = Socialite::with( $provider )->user();
         } catch ( \Exception $e ) {
             return redirect('/login');
         }

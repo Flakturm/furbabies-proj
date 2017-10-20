@@ -5,6 +5,10 @@
     </head>
 
     <body>
+        <div class="container-fluid">
+            @include('frontend.includes.nav')
+        </div>
+
         <div class="container">
             @yield('content')
         </div><!-- container -->
