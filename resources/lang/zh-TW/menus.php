@@ -61,7 +61,7 @@ return [
         'langs' => [
             'ar' => '(Arabic)',
             'zh' => '中文（Chinese Simplified）',
-            'zh-TW' => '中文（Chinese Traditional）',
+            'zh-TW' => '正體中文（Chinese Traditional）',
             'da' => '丹麥語（Danish）',
             'de' => '德語（German）',
             'el' => '希臘語（Greek）',
@@ -76,7 +76,7 @@ return [
             'ru' => '俄語（Russian）',
             'sv' => '瑞典語（Swedish）',
             'th' => '泰語（Thai）',
-            'tr'    => '(Turkish)',
+            'tr' => '(Turkish)',
         ],
     ],
 ];
