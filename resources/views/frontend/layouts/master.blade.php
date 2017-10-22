@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        <div class="container-fluid">
+        <div class="container">
             @include('frontend.includes.nav')
         </div>
 

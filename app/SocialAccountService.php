@@ -6,7 +6,7 @@ use Laravel\Socialite\Contracts\User as ProviderUser;
 
 class SocialAccountService
 {
-    private $avatarSize = 40;
+    private $avatarSize = 30;
 
     public function findOrCreate( ProviderUser $providerUser, $provider )
     {

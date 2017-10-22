@@ -7,24 +7,19 @@
 
     <div class="collapse navbar-collapse" id="nav-content">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item my-auto">
-                <a class="nav-link" href="{{ url('/') }}">@lang('navs.general.home')</a>
-            </li>
             @guest
             <li class="nav-item my-auto">
-                <a class="nav-link" href="{{ route('login') }}">@lang('navs.frontend.login')</a>
-            </li>
-            <li class="nav-item my-auto">
-                <a class="nav-link" href="{{ route('register') }}">@lang('navs.frontend.register')</a>
+                <a class="nav-link" href="{{ route('login') }}">@lang('navs.frontend.login')/@lang('navs.frontend.register')</a>
             </li>
             @else
             <li class="nav-item navbar-nav dropdown my-auto">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if ( Auth::user()->avatar )
-                        {{ HTML::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded' ] ) }}
+                        {{ HTML::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded mr-1' ] ) }}
                     @else
                         <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
                     @endif
+                    {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">@lang('navs.general.favourites')</a>
@@ -42,11 +37,10 @@
             </li>
             @endguest
             <li class="nav-item navbar-nav dropdown my-auto">
-                <a class="nav-link dropdown-toggle no-caret" href="" id="navbarDropdownSettingLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-cog fa-2x fa-fw" aria-hidden="true"></i>
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownSettingLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @lang('menus.language-picker.language')
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownSettingLink">
-                    <h6 class="dropdown-header">@lang('menus.language-picker.language')</h6>
                     @foreach (Config::get('languages') as $lang => $language)
                     <a class="dropdown-item{{ $lang == App::getLocale() ? " disabled" : ""}}" href="{{ $lang != App::getLocale() ? route('lang.switch', $lang) : "#"}}">@lang('menus.language-picker.langs.' . $lang)</a>
                     @endforeach
