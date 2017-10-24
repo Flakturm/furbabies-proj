@@ -15,7 +15,7 @@
             <li class="nav-item navbar-nav dropdown my-auto">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if ( Auth::user()->avatar )
-                        {{ HTML::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded mr-1' ] ) }}
+                        {{ Html::image( Auth::user()->avatar, Auth::user()->name, [ 'class' => 'rounded mr-1' ] ) }}
                     @else
                         <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
                     @endif
