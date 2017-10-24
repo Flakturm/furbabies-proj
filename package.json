@@ -20,5 +20,8 @@
         "nprogress": "^0.2.0",
         "components-font-awesome": "^4.7.0",
         "select2": "*"
+    },
+    "dependencies": {
+        "masonry-layout": "^4.2.0"
     }
 }
