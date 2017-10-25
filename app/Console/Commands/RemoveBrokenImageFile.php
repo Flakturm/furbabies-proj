@@ -38,7 +38,10 @@ class RemoveBrokenImageFile extends Command
      */
     public function handle()
     {
-        $animals = ShelterAnimal::whereNotIn( 'album_file', [''] )->get();
+        $animals = ShelterAnimal::where( 'album_file', '!=' ,'' )
+                                ->where( 'image_checked', '=', false )
+                                ->where( 'status', '=', 'OPEN' )
+                                ->get();
 
         $this->line( count( $animals ) . ' records will be checked for broken image link.' );
 
@@ -46,7 +49,7 @@ class RemoveBrokenImageFile extends Command
 
         $timeStart = microtime( true );
 
-        foreach ( ShelterAnimal::whereNotIn( 'album_file', [''] )->cursor() as $shelterAnimal )
+        foreach ( ShelterAnimal::where( 'album_file', '!=' ,'' )->where( 'image_checked', '=', false )->where( 'status', '=', 'OPEN' )->cursor() as $shelterAnimal )
         {
             if ( is_404( $shelterAnimal->album_file ) )
             {
@@ -54,6 +57,8 @@ class RemoveBrokenImageFile extends Command
                 ShelterAnimal::find( $shelterAnimal->id )->update(['album_file' => '']);
                 $this->comment( '  Broken link found.  ID = ' . $shelterAnimal->id . '.  Load time: ' . (microtime( true ) - $loadStart) . ' seconds.' );
             }
+
+            ShelterAnimal::find( $shelterAnimal->id )->update(['image_checked' => true]);
             $bar->advance();
         }
 
@@ -61,27 +66,5 @@ class RemoveBrokenImageFile extends Command
 
         $this->line( 'All records have been gone through.' );
         $this->info( 'Excution time: ' . (microtime( true ) - $timeStart)/60 . ' minutes' );
-
-        // $this->info( count( $brokenLinks ) . ' broken image links have been found.' );
-        //
-        // if ( $this->confirm( 'Do you wish to empty them?' ) )
-        // {
-        //     ShelterAnimal::whereIn( 'id', $brokenLinks )->update([
-        //         'album_file' => ''
-        //     ]);
-        //     $this->info('');
-        //     $this->info( count( $brokenLinks ) . ' broken image links have been emptied.' );
-        //     $this->info( 'Total excution time: ' . (microtime( true ) - $timeStart)/60 . ' minutes' );
-        // }
-        // else
-        // {
-        //     $this->comment( 'Abort.' );
-        // }
-
-
-        // $this->info("Hey, watch this !");
-        // $this->comment("Just a comment passing by");
-        // $this->question("Why did you do that?");
-        // $this->error("Ops, that should not happen.");
     }
 }

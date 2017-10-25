@@ -13,7 +13,7 @@ class PullData extends Command
      *
      * @var string
      */
-    protected $signature = 'pull:start';
+    protected $signature = 'pull-data:start';
 
     /**
      * The console command description.
@@ -78,6 +78,11 @@ class PullData extends Command
                 'createtime' => $item['animal_createtime'],
                 'album_file' => $item['album_file']
             ];
+
+            if ( $item['album_file'] == '' )
+            {
+                $data['image_checked'] = true;
+            }
 
             $arr[$key] = $data;
         }
