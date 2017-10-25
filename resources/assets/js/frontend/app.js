@@ -6,7 +6,6 @@
  */
 
 require('../bootstrap');
-require('masonry-layout');
 window.NProgress = require('nprogress');
 window.Select2 = require('select2');
 
