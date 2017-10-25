@@ -9,4 +9,4 @@
 <meta name="description" content="@yield('meta_description', '')">
 <meta name="author" content="@yield('meta_author', 'Yi Shen, Wu')">
 
-{{ Html::style(mix('css/app.css')) }}
+{{ Html::style(mix('frontend/css/app.css')) }}

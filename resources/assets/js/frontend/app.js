@@ -5,7 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('../bootstrap');
+require('masonry-layout');
 window.NProgress = require('nprogress');
 window.Select2 = require('select2');
 

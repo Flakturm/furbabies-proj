@@ -21,5 +21,5 @@ mix.autoload({
         tether: ['Tether', 'window.Tether'],
         'popper.js/dist/umd/popper.js': ['Popper']
     })
-   .js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .js('resources/assets/js/frontend/app.js', 'public/frontend/js')
+   .sass('resources/assets/sass/frontend/app.scss', 'public/frontend/css');

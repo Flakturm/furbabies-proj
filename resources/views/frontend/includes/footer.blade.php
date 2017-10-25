@@ -1,1 +1,1 @@
-{{ Html::script(mix('js/app.js')) }}
+{{ Html::script(mix('frontend/js/app.js')) }}
