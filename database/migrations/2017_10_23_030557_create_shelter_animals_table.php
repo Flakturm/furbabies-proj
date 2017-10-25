@@ -36,6 +36,7 @@ class CreateShelterAnimalsTable extends Migration
             $table->dateTime('update');
             $table->dateTime('createtime');
             $table->string('album_file')->nullable();
+            $table->boolean('image_checked')->default(false);
             $table->timestamps();
         });
     }

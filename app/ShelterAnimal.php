@@ -27,7 +27,8 @@ class ShelterAnimal extends Model
         'closeddate',
         'update',
         'createtime',
-        'album_file'
+        'album_file',
+        'image_checked'
     ];
 
     public function shelter()
