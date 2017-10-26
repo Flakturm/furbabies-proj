@@ -17,7 +17,7 @@ if ( process.env.NODE_ENV == 'production' )
  */
 
 mix.autoload({
-        jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window.jquery"],
+        jquery: ['$', 'window.jQuery','jQuery','window.$','jquery','window.jquery'],
         tether: ['Tether', 'window.Tether'],
         'popper.js/dist/umd/popper.js': ['Popper']
     })
