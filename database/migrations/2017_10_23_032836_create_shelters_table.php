@@ -16,8 +16,10 @@ class CreateSheltersTable extends Migration
         Schema::create('shelters', function (Blueprint $table) {
             $table->tinyInteger('id');
             $table->string('name');
-            $table->string('address');
-            $table->string('telephone');
+            $table->string('address')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            $table->text('remark')->nullable();
             $table->tinyInteger('area_id');
             $table->timestamps();
         });
