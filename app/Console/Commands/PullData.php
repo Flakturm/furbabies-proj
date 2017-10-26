@@ -20,7 +20,7 @@ class PullData extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Pull data from the client uri json file and store it onto the database.';
 
     /**
      * Create a new command instance.
@@ -105,6 +105,6 @@ class PullData extends Command
             $this->info('Batch #' . $key . ' updated/created');
         }
         $this->info('');
-        $this->info('All done.  ' . count( $arr ) . 'records updated or created.');
+        $this->info('All done.  ' . count( $arr ) . ' records updated or created.');
     }
 }
