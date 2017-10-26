@@ -30,8 +30,12 @@ if (! function_exists('is_404'))
             return true;
         }
 
-        $headers = get_headers( $url );
+        $ch = curl_init($url);
+        // don't download content
+        curl_setopt($ch, CURLOPT_NOBODY, 1);
+        curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        return strpos( $headers[0], '404' ) ? true : false;
+        return curl_exec( $ch ) !== false;
     }
 }
