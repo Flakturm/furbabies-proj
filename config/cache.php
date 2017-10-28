@@ -91,4 +91,6 @@ return [
         str_slug(env('APP_NAME', 'laravel'), '_').'_cache'
     ),
 
+    'time' => env('CACHE_TIME', 24 * 60), // 24 hours
+
 ];
