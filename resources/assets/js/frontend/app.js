@@ -12,10 +12,16 @@ window.Select2 = require('select2');
 // Show the progress bar
 NProgress.start();
 // Trigger finish when page fully loaded
-NProgress.done();
+$(window).on('load', function() {
+    NProgress.done();
+});
 // Trigger bar when exiting the page
 $(window).on('beforeunload', function(){
     NProgress.start();
+});
+
+ $('img').on('error', function() {
+     $(this).attr('src', 'http://placehold.it/300x300');
  });
 
 $(function () {

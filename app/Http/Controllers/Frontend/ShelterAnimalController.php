@@ -15,8 +15,8 @@ class ShelterAnimalController extends Controller
      */
     public function index()
     {
-        // get list of random animals from api
-        $results = ShelterAnimal::get()->random(12);
+        // get a list of random animals
+        $results = ShelterAnimal::with('shelter:id,name')->get()->random(8);
 
         return view('frontend.index')->with('animals', $results);
     }
