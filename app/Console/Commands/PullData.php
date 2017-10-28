@@ -61,15 +61,15 @@ class PullData extends Command
                 'shelter_pkid' => $item['animal_shelter_pkid'],
                 'place' => $item['animal_place'],
                 'kind' => $item['animal_kind'],
-                'sex' => $item['animal_sex'],
-                'bodytype' => $item['animal_bodytype'],
+                'gender' => strtolower($item['animal_sex']),
+                'bodytype' => strtolower($item['animal_bodytype']),
                 'colour' => $item['animal_colour'],
-                'age' => $item['animal_age'],
-                'sterilization' => $item['animal_sterilization'],
-                'bacterin' => $item['animal_bacterin'],
+                'age' => strtolower($item['animal_age']),
+                'sterilization' => strtolower($item['animal_sterilization']),
+                'bacterin' => strtolower($item['animal_bacterin']),
                 'foundplace' => $item['animal_foundplace'],
                 'title' => $item['animal_title'],
-                'status' => $item['animal_status'],
+                'status' => strtolower($item['animal_status']),
                 'remark' => $item['animal_remark'],
                 'caption' => $item['animal_caption'],
                 'opendate' => $item['animal_opendate'],
@@ -78,11 +78,6 @@ class PullData extends Command
                 'createtime' => $item['animal_createtime'],
                 'album_file' => $item['album_file']
             ];
-
-            if ( $item['album_file'] == '' )
-            {
-                $data['image_checked'] = true;
-            }
 
             $arr[$key] = $data;
         }
