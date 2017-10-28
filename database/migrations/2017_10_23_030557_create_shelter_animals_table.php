@@ -20,7 +20,7 @@ class CreateShelterAnimalsTable extends Migration
             $table->integer('shelter_pkid')->unsigned();
             $table->string('place')->nullable();
             $table->string('kind');
-            $table->string('sex');
+            $table->string('gender');
             $table->string('bodytype');
             $table->string('colour');
             $table->string('age');
@@ -36,7 +36,6 @@ class CreateShelterAnimalsTable extends Migration
             $table->dateTime('update');
             $table->dateTime('createtime');
             $table->string('album_file')->nullable();
-            $table->boolean('image_checked')->default(false);
             $table->timestamps();
         });
     }
