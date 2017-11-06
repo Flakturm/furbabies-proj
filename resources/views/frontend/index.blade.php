@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        @forelse ($animals->chunk(4) as $chunk)
+        <h3 class="">@lang('page.frontend.animal.recentPets') <a href="#" class="btn btn-outline-dark ml-3" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('page.general.viewAll')</a></h3>
+        @foreach ($animals->chunk(5) as $chunk)
         <div class="card-deck mb-4">
             @foreach ($chunk as $animal)
             <div class="card">
@@ -15,53 +16,71 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <span class="h5">
-                            {{ Html::link(route('shelter.by.animal', ['name' => $animal->shelter->name]), $animal->shelter->name, ['class' => 'badge badge-secondary']) }}
-                        </span>
-                    </p>
-
-                    <p class="card-text">
-                        @lang('page.frontend.home.colour'):
-                        @if ( $animal->colour )
-                            {{ $animal->colour }}
-                        @else
-                            @lang('page.general.unknown')
-                        @endif
-                    </p>
-                    <p class="card-text">
-                        @lang('page.frontend.home.age'):
-                        @if ( $animal->age )
-                            @lang('page.frontend.home.' . $animal->age)
-                        @else
-                            @lang('page.general.unknown')
-                        @endif
-                    </p>
-                    <p class="card-text">
-                        @lang('page.frontend.home.gender'):
-                        @if ( $animal->gender )
-                            @lang('page.frontend.home.' . $animal->gender)
-                        @else
-                            @lang('page.general.unknown')
-                        @endif
-                    </p>
-                </div>
                 <div class="card-footer">
-                    <small class="text-muted">@lang('page.frontend.home.update_time', ['time' => $animal->update->diffForHumans()])</small>
-                    {{ Html::link(route('shelter.animal', ['id' => $animal->id]), __('page.frontend.home.aboutMe'), ['class' => 'btn btn-info btn-sm float-right']) }}
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa fa-map-marker ml-1" aria-hidden="true"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">
+                                {{ $animal->shelter->area->name }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">
+                                @if ( $animal->colour )
+                                    {{ $animal->colour }}
+                                @else
+                                    @lang('page.general.unknown')
+                                @endif
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa fa-paw" aria-hidden="true"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">
+                                @if ( $animal->age )
+                                    @lang('page.frontend.animal.' . $animal->age)
+                                @else
+                                    @lang('page.general.unknown')
+                                @endif
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa fa-venus-mars mr-1" aria-hidden="true"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">
+                                @if ( $animal->gender )
+                                    @lang('page.frontend.animal.' . $animal->gender)
+                                @else
+                                    @lang('page.general.unknown')
+                                @endif
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">@lang('page.frontend.animal.updateTime', ['time' => $animal->update->diffForHumans()])</small>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endforeach
         </div>
-        @empty
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">
-                    123
-                </p>
-            </div>
-        </div>
-        @endforelse
+        @endforeach
     </div>
 @endsection

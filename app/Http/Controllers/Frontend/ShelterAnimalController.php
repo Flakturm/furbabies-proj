@@ -18,10 +18,10 @@ class ShelterAnimalController extends Controller
     {
         ini_set('memory_limit','256M');
         // get a list of random animals
-        $animals = ShelterAnimal::with('shelter:id,name')
+        $animals = ShelterAnimal::with('shelter.area')
                                 ->orderBy('update', 'desc')
                                 ->get()
-                                ->take(8);
+                                ->take(5);
 
         return view('frontend.index', compact('animals'));
     }
