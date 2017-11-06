@@ -20,9 +20,28 @@ $(window).on('beforeunload', function(){
     NProgress.start();
 });
 
- $('img').on('error', function() {
-     $(this).attr('src', 'http://placehold.it/300x300');
- });
+$('img').on('error', function() {
+    let ele = $(this);
+    ele.attr('src', '/images/nophoto.jpg');
+    // console.log(ele.data('id'));
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type:"POST",
+        url:'/image/empty',
+        data: { 'id': ele.data('id') },
+        dataType: 'json',
+        // success: function(data){
+        //     console.log(data.message);
+        // },
+        // error: function(data){
+        //
+        // }
+    });
+});
 
 $(function () {
 

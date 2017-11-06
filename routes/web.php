@@ -31,3 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('lang/{locale}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
+
+Route::prefix('image')->group(function () {
+    Route::post('empty', 'ImageController@update');
+});

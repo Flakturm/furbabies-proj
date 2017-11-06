@@ -16,8 +16,12 @@ class ShelterAnimalController extends Controller
      */
     public function index()
     {
+        ini_set('memory_limit','256M');
         // get a list of random animals
-        $animals = ShelterAnimal::with('shelter:id,name')->get()->random(8);
+        $animals = ShelterAnimal::with('shelter:id,name')
+                                ->orderBy('update', 'desc')
+                                ->get()
+                                ->take(8);
 
         return view('frontend.index', compact('animals'));
     }

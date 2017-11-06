@@ -10,7 +10,7 @@
                     <div class="card-item-image">
                         <div class="img-wrapper">
                             <a class="thumb" href="{{ route('shelter.animal', ['id' => $animal->id]) }}">
-                            {{ Html::image($animal->album_file, 'animal-' . $animal->animal_id) }}
+                                {{ Html::image($animal->album_file, 'animal-' . $animal->animal_id, ['data-id' => $animal->id]) }}
                             </a>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                     </p>
                     <p class="card-text">
                         @lang('page.frontend.home.gender'):
-                        @if ( $animal->sex )
-                            @lang('page.frontend.home.' . $animal->sex)
+                        @if ( $animal->gender )
+                            @lang('page.frontend.home.' . $animal->gender)
                         @else
                             @lang('page.general.unknown')
                         @endif
