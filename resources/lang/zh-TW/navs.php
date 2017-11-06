@@ -20,10 +20,18 @@ return [
     ],
 
     'frontend' => [
-        'contact' => 'Contact',
+        'mainPages' => '主要頁面',
+
+        'aboutUs' => '關於本站',
+        'contact' => '聯絡本站',
+        'who' => '本站的心路歷程',
+
+        'links' => '相關連結',
+        'shelters' => '公立收容所',
+        'petShops' => '合法寵物業者',
+
         'dashboard' => '儀表板',
         'login' => '登入',
-        'macros' => '宏',
         'register' => '註冊',
 
         'user' => [

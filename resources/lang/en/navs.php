@@ -20,10 +20,18 @@ return [
     ],
 
     'frontend' => [
+        'mainPages' => 'Main Pages',
+
+        'aboutUs' => 'About Us',
         'contact' => 'Contact',
+        'who' => 'How we started',
+
+        'links' => 'Useful Links',
+        'shelters' => 'Shelters',
+        'petShops' => 'Registered Pet Shops',
+
         'dashboard' => 'Dashboard',
         'login'     => 'Login',
-        'macros'    => 'Macros',
         'register'  => 'Register',
 
         'user' => [

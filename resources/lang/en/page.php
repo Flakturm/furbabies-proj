@@ -14,21 +14,19 @@ return [
 
     ],
     'frontend' => [
-        'home' => [
+        'animal' => [
+            'recentPets' => 'Recent Pets',
             'aboutMe' => 'More',
             'watch' => 'Add to favourites',
-            'age' => 'Age',
             'adult' => 'Adult',
             'child' => 'Child',
-            'gender' => 'Gender',
             'm' => 'Boy',
             'f' => 'Girl',
-            'iAmAt' => '<span class="h5"><a href=":link" class="badge badge-secondary">:shelter</a></span>',
-            'colour' => 'Colour',
-            'update_time' => 'Posted :time',
+            'updateTime' => 'Posted :time',
         ],
     ],
     'general' => [
         'unknown' => 'Unknown',
+        'viewAll' => 'View All',
     ]
 ];
