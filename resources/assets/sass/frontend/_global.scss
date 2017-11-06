@@ -1,9 +1,18 @@
+// custom
+.btn-default {
+        color: $white;
+        background-color: $btn-bg-color;
+    }
+    .btn-default:hover {
+        background-color: $btn-hover;
+    }
+
 .dropdown-toggle.no-caret::after {
     display:none
 }
 
-p.card-text {
-    margin-bottom: 0.5rem;
+.card-footer small {
+    font-size: 79%;
 }
 
 .card-item-image {

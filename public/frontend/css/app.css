@@ -12321,12 +12321,21 @@ a.text-dark:hover {
   clip: auto;
 }
 
+.btn-default {
+  color: #fff;
+  background-color: #3097D1;
+}
+
+.btn-default:hover {
+  background-color: #d6772a;
+}
+
 .dropdown-toggle.no-caret::after {
   display: none;
 }
 
-p.card-text {
-  margin-bottom: 0.5rem;
+.card-footer small {
+  font-size: 79%;
 }
 
 .card-item-image {
