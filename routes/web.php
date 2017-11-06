@@ -17,6 +17,11 @@ Route::namespace('Frontend')->group(function () {
         Route::get('{id}', 'ShelterAnimalController@show')->name('shelter.animal')->where('id', '[0-9]+');
         Route::get('shelter/{name}', 'ShelterAnimalController@showAnimalsByShelter')->name('shelter.by.animal');
     });
+
+    Route::prefix('shelter')->group(function () {
+        Route::get('/', 'ShelterController@index')->name('shelters');
+        Route::get('{name}', 'ShelterController@show')->name('shelter');
+    });
 });
 
 Route::namespace('Auth')->group(function () {
