@@ -25,7 +25,7 @@ return [
             'f' => 'Girl',
             'iAmAt' => '<span class="h5"><a href=":link" class="badge badge-secondary">:shelter</a></span>',
             'colour' => 'Colour',
-            'update_time' => 'Updated :time',
+            'update_time' => 'Posted :time',
         ],
     ],
     'general' => [
