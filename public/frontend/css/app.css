@@ -12323,11 +12323,11 @@ a.text-dark:hover {
 
 .btn-default {
   color: #fff;
-  background-color: #3097D1;
+  background-color: #ff6300;
 }
 
 .btn-default:hover {
-  background-color: #d6772a;
+  background-color: #e25600;
 }
 
 .dropdown-toggle.no-caret::after {
