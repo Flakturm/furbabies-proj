@@ -15,7 +15,7 @@ class CreateShelterAnimalsTable extends Migration
     {
         Schema::create('shelter_animals', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('animal_id')->unsigned();
+            $table->bigInteger('animal_id')->unsigned()->unique();
             $table->string('subid');
             $table->integer('shelter_pkid')->unsigned();
             $table->string('place')->nullable();

@@ -92,7 +92,7 @@ class PullData extends Command
             $bar = $this->output->createProgressBar( count( $value ) );
             foreach ( $value as $data )
             {
-                ShelterAnimal::updateOrCreate( $data );
+                ShelterAnimal::updateOrCreate( ['animal_id' => $data['animal_id']], $data );
                 $bar->advance();
             }
             $bar->finish();
