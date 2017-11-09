@@ -14,6 +14,9 @@ return [
 
     ],
     'frontend' => [
+        'index' => [
+            'browseCategories' => '按照分類',
+        ],
         'animal' => [
             'recentPets' => '最新寵物',
             'aboutMe' => '關於更多的我',
@@ -23,6 +26,8 @@ return [
             'm' => '男生',
             'f' => '女生',
             'updateTime' => ':time更新',
+            'cats' => '貓',
+            'dogs' => '狗',
         ],
     ],
     'general' => [

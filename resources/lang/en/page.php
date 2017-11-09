@@ -14,6 +14,9 @@ return [
 
     ],
     'frontend' => [
+        'index' => [
+            'browseCategories' => 'Browse Categories',
+        ],
         'animal' => [
             'recentPets' => 'Recent Pets',
             'aboutMe' => 'More',
@@ -23,6 +26,8 @@ return [
             'm' => 'Boy',
             'f' => 'Girl',
             'updateTime' => 'Posted :time',
+            'cats' => 'Cats',
+            'dogs' => 'Dogs',
         ],
     ],
     'general' => [

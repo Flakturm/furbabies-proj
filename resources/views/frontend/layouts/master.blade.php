@@ -5,13 +5,11 @@
     </head>
 
     <body>
-        <div class="container">
-            @include('frontend.includes.nav')
-        </div>
+        @include('frontend.includes.nav')
 
-        <div class="container">
+        <main>
             @yield('content')
-        </div><!-- container -->
+        </main>
 
         @include('frontend.includes.footer')
     </body>

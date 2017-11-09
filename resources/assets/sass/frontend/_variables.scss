@@ -3,6 +3,7 @@ $light-grey: #d2d1d1;
 
 // Body
 $body-bg: #f5f8fa;
+$body-secondary-bg: #ededed;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -13,6 +14,7 @@ $panel-inner-border: $laravel-border-color;
 
 // Brands
 $brand-primary: #ff6300;
+$brand-secondary-primary: #ff7f30;
 $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
