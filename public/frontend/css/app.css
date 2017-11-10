@@ -12391,6 +12391,38 @@ header#banner {
   opacity: 0;
 }
 
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  width: 40px;
+  height: 40px;
+  z-index: 100;
+  display: none;
+  text-decoration: none;
+  color: #fff;
+  background-color: #444444;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  text-decoration: none;
+  border-radius: 20px;
+  -webkit-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  color: #fff;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.back-to-top i {
+  font-size: 30px;
+}
+
 .card-footer small {
   font-size: 79%;
 }

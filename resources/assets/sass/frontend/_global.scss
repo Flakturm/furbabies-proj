@@ -72,6 +72,43 @@ header#banner{
     opacity:0;
 }
 
+// back to top
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    display: none;
+    text-decoration: none;
+    color: $white;
+    background-color: $dark-grey;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 20px;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    color: $white;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.back-to-top i {
+    font-size: 30px;
+}
+
 // card
 .card-footer small {
     font-size: 79%;

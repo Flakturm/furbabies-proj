@@ -43,5 +43,5 @@
         <p>© {{ \Carbon\Carbon::now()->year }} All rights reserved to {{ app_name() }} </p>
     </div>
 </footer>
-
+<a id="back-to-top" href="#" class="back-to-top text-center" role="button"><i class="fa fa-arrow-up mt-1" aria-hidden="true"></i></a>
 {{ Html::script(mix('frontend/js/app.js')) }}
