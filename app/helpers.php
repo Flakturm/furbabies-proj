@@ -3,7 +3,7 @@
 /**
  * Global helpers file with misc functions.
  */
-if (! function_exists('app_name'))
+if (! function_exists('app_name') )
 {
     /**
      * Helper to grab the application name.
@@ -16,26 +16,19 @@ if (! function_exists('app_name'))
     }
 }
 
-if (! function_exists('is_404'))
+if (! function_exists('classActivePath') )
 {
-    /**
-     * Helper to check if the url is broken or not.
-     *
-     * @return boolean
-     */
-    function is_404( $url )
+    /*
+    |--------------------------------------------------------------------------
+    | Detect Active Route
+    |--------------------------------------------------------------------------
+    |
+    | Compare given route with current route and return output if they match.
+    | Very useful for navigation, marking if the link is active.
+    |
+    */
+    function isActiveRoute( $route, $output = 'active' )
     {
-        if ( empty( $url ) )
-        {
-            return true;
-        }
-
-        $ch = curl_init($url);
-        // don't download content
-        curl_setopt($ch, CURLOPT_NOBODY, 1);
-        curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        return curl_exec( $ch ) !== false;
+        if ( Route::currentRouteName() == $route ) return $output;
     }
 }
