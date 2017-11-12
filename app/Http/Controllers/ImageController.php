@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ShelterAnimal;
+use Cache;
 
 class ImageController extends Controller
 {
@@ -18,6 +19,8 @@ class ImageController extends Controller
         $shelterAnimal = ShelterAnimal::find( $request->id );
         $shelterAnimal->album_file = asset('images/nophoto.jpg');
         $shelterAnimal->save();
+
+        Cache::forget('shelteranimals_page_' . $request->page);
         return response()->json(['message' => $request->id . ' album_file wiped.']);
     }
 }

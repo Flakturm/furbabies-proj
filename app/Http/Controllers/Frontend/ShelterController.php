@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Shelter;
+use Cache;
 
 class ShelterController extends Controller
 {
@@ -14,29 +16,26 @@ class ShelterController extends Controller
      */
     public function index()
     {
-        ini_set('memory_limit','256M');
-        // get a list of random animals
-        $animals = ShelterAnimal::with('shelter.area')
-                                ->orderBy('update', 'desc')
-                                ->get()
-                                ->take(5);
+        // get a list of Shelters
+        $shelters = Cache::remember('shelters', config('cache.time'), function () {
+            return Shelter::all();
+        });
 
-        return view('frontend.index', compact('animals'));
+        return view('frontend.shelterlist', compact('shelters'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $name
      * @return \Illuminate\Http\Response
      */
     public function show( $name )
     {
-        $animals = Cache::remember('shelterAnimals', config('cache.time'), function () use ( $id ) {
-            return ShelterAnimal::with('shelter.area')
-                                ->where('id', '=', $id)
-                                ->first();
+        $shelter = Cache::remember('shelter_' . $name, config('cache.time'), function () use ( $name ) {
+            return Shelter::where('name', '=', $name)
+                          ->first();
         });
-        return view('frontend.shelteranimal', compact('animals'));
+        return view('frontend.shelter', compact('shelter'));
     }
 }

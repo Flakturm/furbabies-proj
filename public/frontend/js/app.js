@@ -15338,26 +15338,25 @@ $(window).on('beforeunload', function () {
     NProgress.start();
 });
 
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
 $('img').on('error', function () {
-    var ele = $(this);
+    var ele = $(this),
+        page = getUrlParameter('page');
     ele.attr('src', '/images/nophoto.jpg');
-    // console.log(ele.data('id'));
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        type: "POST",
-        url: '/image/empty',
-        data: { 'id': ele.data('id') },
-        dataType: 'json'
-        // success: function(data){
-        //     console.log(data.message);
-        // },
-        // error: function(data){
-        //
-        // }
+
+    axios.post('/image/empty', {
+        id: ele.data('id'),
+        page: page
+    }).then(function (response) {
+        console.log(response.message);
+    }).catch(function (error) {
+        console.error(error);
     });
 });
 
