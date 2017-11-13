@@ -76,7 +76,7 @@ class PullData extends Command
                 'closeddate' => $item['animal_closeddate'],
                 'update' => $item['animal_update'],
                 'createtime' => $item['animal_createtime'],
-                'album_file' => $item['album_file']
+                'album_file' => $item['album_file'] ? $item['album_file'] : asset('images/nophoto.jpg')
             ];
 
             $arr[$key] = $data;
