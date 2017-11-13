@@ -1,4 +1,7 @@
 // custom
+img {
+  @extend .img-fluid;
+}
 .btn-default {
         color: $white;
         background-color: $btn-bg-color;

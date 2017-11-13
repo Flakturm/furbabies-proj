@@ -4,18 +4,19 @@
     @include('frontend.includes.banner')
 
     <section class="container pt-5 pt-sm-0">
-        <h3 class="mb-3">@lang('page.frontend.animal.recentPets') <a href="#" class="btn btn-outline-dark ml-3" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('page.general.viewAll')</a></h3>
-        @foreach ($animals->chunk(5) as $chunk)
+        <header>
+            <h3 class="mb-3">@lang('page.frontend.animal.recentPets') <a href="{{ route('all.shelter.animal') }}" class="btn btn-outline-dark ml-3" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i> @lang('page.general.viewAll')</a></h3>
+        </header>
         <div class="card-deck mb-4">
-            @foreach ($chunk as $animal)
+            @foreach ($animals as $animal)
             <div class="card">
                 <div class="card-img-top">
                     <div class="card-item-image">
-                        <div class="img-wrapper">
+                        <picture class="img-wrapper">
                             <a class="thumb" href="{{ route('shelter.animal', ['id' => $animal->id]) }}">
                                 {{ Html::image($animal->album_file, 'animal-' . $animal->animal_id, ['data-id' => $animal->id]) }}
                             </a>
-                        </div>
+                        </pitcure>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -97,7 +98,6 @@
             </div>
             @endforeach
         </div>
-        @endforeach
     </section>
 
     <section class="container-fluid darken my-grey-border border-right-0 border-bottom-0 border-left-0">
@@ -108,7 +108,7 @@
             <div class="row">
                     <picture class="col-12 col-sm-6 mb-4 mb-sm-0 categories">
                         <a href="#">
-                            {{ HTML::image(asset('images/category-cats.jpg'), 'Categories Cats', array('class' => 'rounded img-fluid transition')) }}
+                            {{ HTML::image(asset('images/category-cats.jpg'), 'Categories Cats', array('class' => 'rounded transition')) }}
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@lang('page.frontend.animal.cats')</p>
                             </div>
@@ -116,7 +116,7 @@
                     </picture>
                     <picture class="col-12 col-sm-6 categories">
                         <a href="#">
-                            <img src="https://placeimg.com/538/250/animals?t=1510008045988" class="rounded img-fluid transition" alt="">
+                            <img src="https://placeimg.com/538/250/animals?t=1510008045988" class="rounded transition" alt="">
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@lang('page.frontend.animal.dogs')</p>
                             </div>
