@@ -21,6 +21,7 @@ return [
 
     'frontend' => [
         'mainPages' => 'Main Pages',
+        'shelterPets' => 'Shelter Pets',
 
         'aboutUs' => 'About Us',
         'contact' => 'Contact',

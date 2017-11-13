@@ -9,6 +9,12 @@
         <div class="collapse navbar-collapse" id="nav-content">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
+                    <a href="{{ url('/') }}" class="nav-link {{ isActiveRoute('index') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item {{ isActiveRoute('all.shelter.animal') }}">
+                    {{ Html::link(route('all.shelter.animal'), __('navs.frontend.shelterPets'), ['class' => 'nav-link']) }}
+                </li>
+                <li class="nav-item">
                     {{ Html::link('about-us', __('navs.frontend.contact'), ['class' => 'nav-link']) }}
                 </li>
             </ul>

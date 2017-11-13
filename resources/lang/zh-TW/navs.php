@@ -21,6 +21,7 @@ return [
 
     'frontend' => [
         'mainPages' => '主要頁面',
+        'shelterPets' => '認養寵物',
 
         'aboutUs' => '關於本站',
         'contact' => '聯絡本站',
