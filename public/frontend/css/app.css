@@ -563,7 +563,8 @@ mark,
   content: "\2014   \A0";
 }
 
-.img-fluid {
+.img-fluid,
+img {
   max-width: 100%;
   height: auto;
 }
@@ -12346,6 +12347,52 @@ header#banner {
 
 .back-to-top i {
   font-size: 30px;
+}
+
+.page-link {
+  color: #ff6300;
+}
+
+.page-item.active .page-link {
+  color: #636b6f;
+  background-color: #e9ecef;
+  border-color: #ddd;
+}
+
+.page-link:focus,
+.page-link:hover,
+nav.pagination .next:hover,
+nav.pagination .prev:hover {
+  color: #636b6f;
+}
+
+nav.pagination .fixed-nav.next {
+  right: 0;
+}
+
+nav.pagination .fixed-nav.prev {
+  left: 0;
+}
+
+nav.pagination .fixed-nav:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+nav.pagination .fixed-nav {
+  color: #d2d1d1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  display: table;
+  text-align: center;
+}
+
+nav.pagination .fixed-nav > i {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .card-footer small {

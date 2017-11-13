@@ -112,6 +112,53 @@ header#banner{
     font-size: 30px;
 }
 
+// pagination
+.page-link {
+    color: $brand-primary;
+}
+
+.page-item.active .page-link {
+    color: $text-color;
+    background-color: #e9ecef;
+    border-color: #ddd;
+}
+
+.page-link:focus,
+.page-link:hover,
+nav.pagination .next:hover,
+nav.pagination .prev:hover {
+    color: $text-color;
+}
+
+nav.pagination .fixed-nav.next {
+    right: 0;
+}
+
+nav.pagination .fixed-nav.prev {
+    left: 0;
+}
+
+nav.pagination .fixed-nav:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+nav.pagination .fixed-nav {
+    color: $light-grey;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+
+nav.pagination .fixed-nav > i {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
 // card
 .card-footer small {
     font-size: 79%;

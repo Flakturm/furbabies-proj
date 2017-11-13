@@ -15354,7 +15354,7 @@ $('img').on('error', function () {
         id: ele.data('id'),
         page: page
     }).then(function (response) {
-        console.log(response.message);
+        // console.log(response.message);
     }).catch(function (error) {
         console.error(error);
     });
