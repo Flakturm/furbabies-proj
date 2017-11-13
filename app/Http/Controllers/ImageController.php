@@ -17,10 +17,18 @@ class ImageController extends Controller
     public function update(Request $request)
     {
         $shelterAnimal = ShelterAnimal::find( $request->id );
-        $shelterAnimal->album_file = asset('images/nophoto.jpg');
-        $shelterAnimal->save();
+        if ( $shelterAnimal == null )
+        {
+            return response()->json('Something is wrong with this id. ID#' . $request->id);
+        }
+        else
+        {
+            $shelterAnimal->album_file = asset('images/nophoto.jpg');
+            $shelterAnimal->save();
 
-        Cache::forget('shelteranimals_page_' . $request->page);
-        return response()->json(['message' => $request->id . ' album_file wiped.']);
+            Cache::forget('shelteranimals_page_' . $request->page);
+
+            return response()->json(['message' => $request->id . ' album_file wiped.']);
+        }
     }
 }
