@@ -103,6 +103,8 @@ return [
     'frontend' => [
 
         'auth' => [
+            'email_address' => 'Email 信箱',
+            'password' => '密碼',
             'login_box_title' => '登錄',
             'login_button' => '登錄',
             'login_with' => '使用 :social_media 登錄',
@@ -117,7 +119,7 @@ return [
         ],
 
         'passwords' => [
-            'forgot_password' => '忘記密碼？ ',
+            'forgot_password' => '忘記密碼？',
             'reset_password_box_title' => '重置密碼',
             'reset_password_button' => '重置密碼',
             'send_password_reset_link_button' => '發送密碼重置鏈接',

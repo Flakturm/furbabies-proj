@@ -107,6 +107,8 @@ return [
     'frontend' => [
 
         'auth' => [
+            'email_address'      => 'Email Address',
+            'password'           => 'Password',
             'login_box_title'    => 'Login',
             'login_button'       => 'Login',
             'login_with'         => 'Login with :social_media',
