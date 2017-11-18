@@ -7,8 +7,8 @@
             <div class="col-sm-2 mb-2">
                 <h5 class="mt-2">@lang('navs.frontend.mainPages')</h5>
                 <ul>
-                    <li><a href="#">@lang('navs.general.home')</a></li>
-                    <li><a href="#">@lang('navs.frontend.register')</a></li>
+                    <li><a href="{{ url('/') }}">@lang('navs.general.home')</a></li>
+                    <li><a href="{{ route('register') }}">@lang('navs.frontend.register')</a></li>
                 </ul>
             </div>
             <div class="col-sm-2 mb-2">
@@ -27,9 +27,9 @@
             </div>
             <div class="col-sm-3 col-12 text-center">
                 <div class="social-networks mb-4 mb-sm-3">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                     <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="github"><i class="fa fa-github"></i></a>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-6">
