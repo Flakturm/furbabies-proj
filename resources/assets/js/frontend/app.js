@@ -7,16 +7,16 @@
 
 require('../bootstrap');
 window.NProgress = require('nprogress');
-window.Select2 = require('select2');
+require('select2');
 
 // Show the progress bar
 NProgress.start();
 // Trigger finish when page fully loaded
-$(window).on('load', function() {
+$(window).on('load', function () {
     NProgress.done();
 });
 // Trigger bar when exiting the page
-$(window).on('beforeunload', function(){
+$(window).on('beforeunload', function (){
     NProgress.start();
 });
 
@@ -27,8 +27,7 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 
-
-$('img').on('error', function() {
+$('img').on('error', function () {
     let ele = $(this),
         page = getUrlParameter('page');
     ele.attr('src', '/images/nophoto.jpg');
@@ -59,5 +58,63 @@ $(function () {
             scrollTop: 0
         }, 800);
         return false;
+    });
+    // select2
+    $('.select2').select2({
+        // cache: true
+    });
+
+    $('#area').select2({
+        ajax: {
+            url: '/api/areas',
+            dataType: "json",
+            type: "GET",
+            processResults: function (data) {
+                data = $.extend({
+                  0: $('#area').data('all')
+                }, data);
+                return {
+                    results: $.map(data, function (text, id) {
+                                return {
+                                    id: id,
+                                    text: text
+                                }
+                    })
+                };
+            },
+            cache: true
+        }
+    })
+
+    $('#area').on('select2:select', function (e) {
+        var data = e.params.data,
+            init_data = [{
+            text: $('#shelter').data('all'),
+            id: 0
+        }];
+
+        if ( data.id > 0 ) {
+            axios.get('/api/area/shelters/' + data.id)
+            .then(function (response) {
+                $('#shelter').val(null).trigger('change');
+                $('#shelter').empty();
+                let new_data = $.map(response.data, function (id, text) {
+                    return {text: text, id: id};
+                });
+
+                $('#shelter').select2({
+                    data: $.merge(init_data, new_data)
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        else {
+            $('#shelter').empty();
+
+            let new_option = new Option(init_data.text, init_data.id, false, false);
+            $('#shelter').append(new_option).trigger('change');
+        }
     });
 });

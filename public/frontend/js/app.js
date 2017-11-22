@@ -15325,7 +15325,7 @@ module.exports = __webpack_require__(39);
 
 __webpack_require__(13);
 window.NProgress = __webpack_require__(37);
-window.Select2 = __webpack_require__(38);
+__webpack_require__(38);
 
 // Show the progress bar
 NProgress.start();
@@ -15374,6 +15374,61 @@ $(function () {
             scrollTop: 0
         }, 800);
         return false;
+    });
+    // select2
+    $('.select2').select2({
+        // cache: true
+    });
+
+    $('#area').select2({
+        ajax: {
+            url: '/api/areas',
+            dataType: "json",
+            type: "GET",
+            processResults: function processResults(data) {
+                data = $.extend({
+                    0: $('#area').data('all')
+                }, data);
+                return {
+                    results: $.map(data, function (text, id) {
+                        return {
+                            id: id,
+                            text: text
+                        };
+                    })
+                };
+            },
+            cache: true
+        }
+    });
+
+    $('#area').on('select2:select', function (e) {
+        var data = e.params.data,
+            init_data = [{
+            text: $('#shelter').data('all'),
+            id: 0
+        }];
+
+        if (data.id > 0) {
+            axios.get('/api/area/shelters/' + data.id).then(function (response) {
+                $('#shelter').val(null).trigger('change');
+                $('#shelter').empty();
+                var new_data = $.map(response.data, function (id, text) {
+                    return { text: text, id: id };
+                });
+
+                $('#shelter').select2({
+                    data: $.merge(init_data, new_data)
+                });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        } else {
+            $('#shelter').empty();
+
+            var new_option = new Option(init_data.text, init_data.id, false, false);
+            $('#shelter').append(new_option).trigger('change');
+        }
     });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
