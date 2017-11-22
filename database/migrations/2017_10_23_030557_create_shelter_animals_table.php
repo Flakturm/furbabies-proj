@@ -20,7 +20,7 @@ class CreateShelterAnimalsTable extends Migration
             $table->integer('shelter_pkid')->unsigned();
             $table->string('place')->nullable();
             $table->string('kind');
-            $table->string('gender');
+            $table->string('sex');
             $table->string('bodytype');
             $table->string('colour');
             $table->string('age');

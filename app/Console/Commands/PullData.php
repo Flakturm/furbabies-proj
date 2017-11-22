@@ -61,7 +61,7 @@ class PullData extends Command
                 'shelter_pkid' => $item['animal_shelter_pkid'],
                 'place' => $item['animal_place'],
                 'kind' => $item['animal_kind'],
-                'gender' => strtolower($item['animal_sex']),
+                'sex' => strtolower($item['animal_sex']),
                 'bodytype' => strtolower($item['animal_bodytype']),
                 'colour' => $item['animal_colour'],
                 'age' => strtolower($item['animal_age']),

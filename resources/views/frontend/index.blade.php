@@ -72,10 +72,10 @@
                                 </div>
                                 <div class="col">
                                     <small class="text-muted">
-                                        @if ( $animal->gender == 'n' )
+                                        @if ( $animal->sex == 'n' )
                                             @lang('page.general.unknown')
-                                        @elseif ( $animal->gender == 'f' OR $animal->gender == 'm' )
-                                            @lang('page.frontend.animal.' . $animal->gender)
+                                        @elseif ( $animal->sex == 'f' OR $animal->sex == 'm' )
+                                            @lang('page.frontend.animal.' . $animal->sex)
                                         @else
                                             @lang('page.general.unknown')
                                         @endif

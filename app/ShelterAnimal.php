@@ -12,7 +12,7 @@ class ShelterAnimal extends Model
         'shelter_pkid',
         'place',
         'kind',
-        'gender',
+        'sex',
         'bodytype',
         'colour',
         'age',
