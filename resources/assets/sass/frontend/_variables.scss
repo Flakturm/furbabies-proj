@@ -1,3 +1,8 @@
+// Colour Palette
+$brown: #7a6961;
+$light-orange: #e9b167;
+$orange: #d0764c;
+$dark-red: #933934;
 $white: #fff;
 $light-grey: #d2d1d1;
 $dark-grey: #444444;
@@ -34,8 +39,7 @@ $navbar-default-bg: $white;
 
 // Buttons
 $btn-default-color: $text-color;
-$btn-bg-color: $brand-primary;
-$btn-hover: #e25600;
+$btn-bg-color: $orange;
 
 // Inputs
 $input-border: lighten($text-color, 40%);

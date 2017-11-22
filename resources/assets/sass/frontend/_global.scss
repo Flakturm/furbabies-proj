@@ -6,10 +6,6 @@ img {
         color: $white;
         background-color: $btn-bg-color;
     }
-    .btn-default:hover {
-        color: $white;
-        background-color: $btn-hover;
-    }
     .btn.facebook {
         background-color: $facebook;
     }
@@ -19,15 +15,19 @@ img {
     .btn.github {
         background-color: $github;
     }
-    .btn.social:hover {
+    .btn:hover {
+        color: $white;
         opacity: 0.9;
+    }
+    .btn {
+        cursor: pointer;
     }
 
 a {
-    color: $brand-secondary-primary;
+    color: $orange;
     }
     a:hover {
-        color: $brand-primary;
+        color: $light-orange;
         text-decoration: none;
     }
 
@@ -49,7 +49,7 @@ a {
 }
 
 .my-border {
-    border: 5px solid $brand-secondary-primary;
+    border: 5px solid $orange;
 }
 
 .my-grey-border {
@@ -106,6 +106,10 @@ a {
     padding-right: 50px; /* gutter width (give a little extra room) 2x default */
 }
 
+// top nav
+.my-nav {
+    background-color: $brown;
+}
 // container
 .darken {
     background-color: $body-secondary-bg;
@@ -186,7 +190,7 @@ header#banner{
 
 // pagination
 .page-link {
-    color: $brand-primary;
+    color: $orange;
 }
 
 .page-item.active .page-link {
