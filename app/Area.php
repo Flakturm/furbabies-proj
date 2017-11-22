@@ -10,7 +10,7 @@ class Area extends Model
         'id', 'name',
     ];
 
-    public function Shelter()
+    public function Shelters()
     {
         return $this->hasMany('App\Shelter');
     }
