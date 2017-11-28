@@ -55,17 +55,30 @@ class PullData extends Command
 
         foreach ( $items as $key => $item ) {
 
+            if ( $item['animal_kind'] == '狗' )
+            {
+                $kind = 'dog';
+            }
+            else if ( $item['animal_kind'] == '貓' )
+            {
+                $kind = 'cat';
+            }
+            else
+            {
+                $kind = 'other';
+            }
+
             $data = [
                 'animal_id' => intval( $item['animal_id'] ),
                 'subid' => $item['animal_subid'],
                 'shelter_pkid' => $item['animal_shelter_pkid'],
                 'place' => $item['animal_place'],
-                'kind' => $item['animal_kind'],
+                'kind' => $kind,
                 'sex' => strtolower($item['animal_sex']),
-                'bodytype' => strtolower($item['animal_bodytype']),
+                'bodytype' => $item['animal_bodytype'] ? strtolower($item['animal_bodytype']) : 'other',
                 'colour' => $item['animal_colour'],
-                'age' => strtolower($item['animal_age']),
-                'sterilization' => strtolower($item['animal_sterilization']),
+                'age' => $item['animal_age'] ? strtolower($item['animal_age']) : 'other',
+                'sterilisation' => strtolower($item['animal_sterilization']),
                 'bacterin' => strtolower($item['animal_bacterin']),
                 'foundplace' => $item['animal_foundplace'],
                 'title' => $item['animal_title'],
