@@ -10,7 +10,7 @@ use Cache;
 class ShelterAnimalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a resultsing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,7 +38,11 @@ class ShelterAnimalController extends Controller
                                 ->paginate(20);
         });
 
-        return view('frontend.shelteranimal.list', compact('animals'));
+        $total = ShelterAnimal::with('shelter.area')
+                              ->orderBy('update', 'desc')
+                              ->count();
+
+        return view('frontend.shelteranimal.results', compact('animals', 'total'));
     }
 
     public function filter( Request $request )
@@ -50,8 +54,9 @@ class ShelterAnimalController extends Controller
         }
 
         $animals = ShelterAnimal::with('shelter.area')->filter( $query )->paginateFilter(20);
+        $total = ShelterAnimal::with('shelter.area')->filter( $query )->count();
 
-        return view('frontend.shelteranimal.list', compact('animals', 'query'));
+        return view('frontend.shelteranimal.results', compact('animals', 'query', 'total'));
     }
 
     /**
@@ -81,6 +86,6 @@ class ShelterAnimalController extends Controller
                                 ->get();
         });
 
-        return view('frontend.shelteranimal.list', compact('animals'));
+        return view('frontend.shelteranimal.results', compact('animals'));
     }
 }
