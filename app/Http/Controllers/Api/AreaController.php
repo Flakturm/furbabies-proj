@@ -12,7 +12,7 @@ class AreaController extends Controller
     public function shelters( $id )
     {
         return Cache::rememberForever('area_' . $id, function () use ( $id ) {
-            return Area::find( $id )->shelters->pluck('id', 'name');
+            return Area::find( $id )->shelters->pluck('name', 'id');
         });
     }
     /**

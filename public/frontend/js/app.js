@@ -15346,21 +15346,18 @@ function getUrlParameter(name) {
 };
 
 $('img').on('error', function () {
-    var ele = $(this),
-        page = getUrlParameter('page');
-    ele.attr('src', '/images/nophoto.jpg');
-
+    $(this).attr('src', '/images/nophoto.jpg');
     axios.post('/image/empty', {
-        id: ele.data('id'),
-        page: page
+        id: $(this).data('id'),
+        page: getUrlParameter('page')
     }).then(function (response) {
         // console.log(response.message);
     }).catch(function (error) {
         console.error(error);
     });
 });
-
 $(function () {
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
             $('#back-to-top').fadeIn();
@@ -15387,7 +15384,7 @@ $(function () {
             type: "GET",
             processResults: function processResults(data) {
                 data = $.extend({
-                    0: $('#area').data('all')
+                    0: $('#area').data('placeholder')
                 }, data);
                 return {
                     results: $.map(data, function (text, id) {
@@ -15402,18 +15399,44 @@ $(function () {
         }
     });
 
+    var area_id = $('#area').val();
+
+    if (area_id) {
+        $('#shelter').select2({
+            ajax: {
+                url: '/api/area/shelters/' + area_id,
+                dataType: "json",
+                type: "GET",
+                processResults: function processResults(data) {
+                    data = $.extend({
+                        0: $('#shelter').data('placeholder')
+                    }, data);
+                    return {
+                        results: $.map(data, function (text, id) {
+                            return {
+                                id: id,
+                                text: text
+                            };
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+    }
+
     $('#area').on('select2:select', function (e) {
         var data = e.params.data,
             init_data = [{
-            text: $('#shelter').data('all'),
-            id: 0
+            id: 0,
+            text: $('#shelter').data('placeholder')
         }];
 
         if (data.id > 0) {
             axios.get('/api/area/shelters/' + data.id).then(function (response) {
                 $('#shelter').val(null).trigger('change');
                 $('#shelter').empty();
-                var new_data = $.map(response.data, function (id, text) {
+                var new_data = $.map(response.data, function (text, id) {
                     return { text: text, id: id };
                 });
 
