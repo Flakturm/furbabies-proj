@@ -17,6 +17,9 @@ return [
         'index' => [
             'browseCategories' => 'Browse Categories',
         ],
+        'results' => [
+            'total' => '<b>:total</b> result found.|<b>:total</b> results found.'
+        ],
         'animal' => [
             'recentPets' => 'Recent Pets',
             'aboutMe' => 'More',

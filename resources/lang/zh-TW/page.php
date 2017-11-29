@@ -17,6 +17,9 @@ return [
         'index' => [
             'browseCategories' => '按照分類',
         ],
+        'results' => [
+            'total' => '找到 <b>:total</b> 筆記錄'
+        ],
         'animal' => [
             'recentPets' => '最新寵物',
             'aboutMe' => '關於更多的我',
@@ -32,6 +35,7 @@ return [
             'small' => '小型',
             'medium' => '中型',
             'big' => '大型',
+            'other' => '其他',
             'n' => '未提供',
         ],
     ],
