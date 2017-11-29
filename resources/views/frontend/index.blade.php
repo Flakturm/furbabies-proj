@@ -107,7 +107,7 @@
             </div>
             <div class="row">
                     <picture class="col-12 col-sm-6 mb-4 mb-sm-0 categories">
-                        <a href="#">
+                        <a href="{{ route('search.shelter.animal', ['kind' => 'cat']) }}">
                             {{ HTML::image(asset('images/category-cats.jpg'), 'Categories Cats', array('class' => 'rounded transition')) }}
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.cat', 2)</p>
@@ -115,7 +115,7 @@
                         </a>
                     </picture>
                     <picture class="col-12 col-sm-6 categories">
-                        <a href="#">
+                        <a href="{{ route('search.shelter.animal', ['kind' => 'dog']) }}">
                             <img src="https://placeimg.com/538/250/animals?t=1510008045988" class="rounded transition" alt="">
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.dog', 2)</p>

@@ -99,10 +99,15 @@
     </section>
 
     <section class="container pt-5 pt-sm-0">
+        <div class="row mb-3">
+            <div class="col d-flex">
+                <span class="ml-auto">@choice('page.frontend.results.total', $total, ['total' => $total])</span>
+            </div>
+        </div>
         @foreach ($animals->chunk(4) as $chunk)
         <div class="card-deck mb-4">
             @foreach ($chunk as $animal)
-            <div class="card">
+            <div class="card col-4 px-0">
                 <div class="card-img-top">
                     <div class="card-item-image">
                         <picture class="img-wrapper">
@@ -165,12 +170,10 @@
                                 </div>
                                 <div class="col">
                                     <small class="text-muted">
-                                        @if ( $animal->sex == 'n' )
-                                            @lang('page.frontend.animal.unknown')
-                                        @elseif ( $animal->sex == 'f' OR $animal->sex == 'm' )
+                                        @if ( $animal->sex == 'f' OR $animal->sex == 'm' )
                                             @choice('page.frontend.animal.' . $animal->sex, 1)
                                         @else
-                                            @lang('page.frontend.animal.unknown')
+                                            @lang('page.frontend.animal.n')
                                         @endif
                                     </small>
                                 </div>

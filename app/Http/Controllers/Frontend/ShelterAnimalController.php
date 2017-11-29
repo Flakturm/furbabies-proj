@@ -39,7 +39,6 @@ class ShelterAnimalController extends Controller
         });
 
         $total = ShelterAnimal::with('shelter.area')
-                              ->orderBy('update', 'desc')
                               ->count();
 
         return view('frontend.shelteranimal.results', compact('animals', 'total'));
@@ -53,7 +52,10 @@ class ShelterAnimalController extends Controller
             return abort(404);
         }
 
-        $animals = ShelterAnimal::with('shelter.area')->filter( $query )->paginateFilter(20);
+        $animals = ShelterAnimal::with('shelter.area')
+                                ->filter( $query )
+                                ->orderBy('update', 'desc')
+                                ->paginateFilter(20);
         $total = ShelterAnimal::with('shelter.area')->filter( $query )->count();
 
         return view('frontend.shelteranimal.results', compact('animals', 'query', 'total'));
