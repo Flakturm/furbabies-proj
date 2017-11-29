@@ -167,5 +167,21 @@ return [
             ],
         ],
 
+        'form' => [
+            'placeholder' => [
+                'areas' => '全部城市',
+                'shelters' => '全部收容所',
+                'kinds' => '全部種類',
+                'sexes' => '全部性別',
+                'ages' => '全部年齡',
+                'bodytypes' => '全部體型',
+            ],
+            'sterilisation' => '節育狀態',
+            'all' => '全部',
+            'other' => '其他',
+            'n' => '未提供',
+            't' => '是',
+            'f' => '否',
+        ],
     ],
 ];

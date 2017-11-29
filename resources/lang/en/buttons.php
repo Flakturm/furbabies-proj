@@ -48,6 +48,7 @@ return [
             'edit'   => 'Edit',
             'update' => 'Update',
             'view'   => 'View',
+            'search' => 'Search',
         ],
 
         'save' => 'Save',

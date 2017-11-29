@@ -26,12 +26,16 @@ return [
             'm' => '男生',
             'f' => '女生',
             'updateTime' => ':time更新',
-            'cats' => '貓',
-            'dogs' => '狗',
+            'cat' => '貓',
+            'dog' => '狗',
+            'mini' => '迷你',
+            'small' => '小型',
+            'medium' => '中型',
+            'big' => '大型',
+            'n' => '未提供',
         ],
     ],
     'general' => [
-        'unknown' => '未知',
         'viewAll' => '全部',
     ]
 ];

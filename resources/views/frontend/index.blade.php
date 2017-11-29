@@ -75,7 +75,7 @@
                                         @if ( $animal->sex == 'n' )
                                             @lang('page.general.unknown')
                                         @elseif ( $animal->sex == 'f' OR $animal->sex == 'm' )
-                                            @lang('page.frontend.animal.' . $animal->sex)
+                                            @choice('page.frontend.animal.' . $animal->sex, 1)
                                         @else
                                             @lang('page.general.unknown')
                                         @endif
@@ -110,7 +110,7 @@
                         <a href="#">
                             {{ HTML::image(asset('images/category-cats.jpg'), 'Categories Cats', array('class' => 'rounded transition')) }}
                             <div class="carousel-caption">
-                                <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@lang('page.frontend.animal.cats')</p>
+                                <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.cat', 2)</p>
                             </div>
                         </a>
                     </picture>
@@ -118,7 +118,7 @@
                         <a href="#">
                             <img src="https://placeimg.com/538/250/animals?t=1510008045988" class="rounded transition" alt="">
                             <div class="carousel-caption">
-                                <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@lang('page.frontend.animal.dogs')</p>
+                                <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.dog', 2)</p>
                             </div>
                         </a>
                     </picture>

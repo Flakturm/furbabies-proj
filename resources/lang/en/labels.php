@@ -173,5 +173,20 @@ return [
             ],
         ],
 
+        'form' => [
+            'placeholder' => [
+                'areas' => 'All Cities',
+                'shelters' => 'All Shelters',
+                'kinds' => 'All Kinds',
+                'sexes' => 'All Sexes',
+                'ages' => 'All Ages',
+                'bodytypes' => 'All Body Types',
+            ],
+            'sterilisation' => 'Sterilisation',
+            'all' => 'All',
+            'n' => 'Unknown',
+            't' => 'Yes',
+            'f' => 'No',
+        ],
     ],
 ];

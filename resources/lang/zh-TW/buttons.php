@@ -44,6 +44,7 @@ return [
             'edit' => '編輯',
             'update' => '更新',
             'view' => '查看',
+            'search' => '搜尋',
         ],
         'save' => '保存',
         'view' => '查看',
