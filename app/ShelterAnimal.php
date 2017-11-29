@@ -3,11 +3,13 @@
 namespace App;
 
 use App\Traits\Enums;
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 class ShelterAnimal extends Model
 {
     use Enums;
+    use Filterable;
 
     protected $fillable = [
         'animal_id',
@@ -66,6 +68,11 @@ class ShelterAnimal extends Model
     protected $enumStatuses = [
         'none', 'open', 'apdopted', 'other', 'dead'
     ];
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(ModelFilters\FrontendFilters\ShelterAnimalFilter::class);
+    }
 
     public function shelter()
     {

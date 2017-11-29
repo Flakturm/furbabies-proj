@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.0.0",
         "barryvdh/laravel-debugbar": "^3.1",
+        "dingo/api": "2.0.0-alpha1",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "~6.0",
@@ -16,7 +17,7 @@
         "laravelcollective/html": "^5.5",
         "predis/predis": "^1.1",
         "symfony/cache": "^3.3",
-        "dingo/api": "2.0.0-alpha1"
+        "tucker-eric/eloquentfilter": "^1.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

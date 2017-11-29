@@ -41,6 +41,19 @@ class ShelterAnimalController extends Controller
         return view('frontend.shelteranimal.list', compact('animals'));
     }
 
+    public function filter( Request $request )
+    {
+        $query = $request->all();
+        if ( count( $query ) < 1 )
+        {
+            return abort(404);
+        }
+
+        $animals = ShelterAnimal::with('shelter.area')->filter( $query )->paginateFilter(20);
+
+        return view('frontend.shelteranimal.list', compact('animals', 'query'));
+    }
+
     /**
      * Display the specified resource.
      *
