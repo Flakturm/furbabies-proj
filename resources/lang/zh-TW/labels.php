@@ -177,6 +177,7 @@ return [
                 'bodytypes' => '全部體型',
             ],
             'sterilisation' => '節育狀態',
+            'bacterin' => '施打疫苗',
             'all' => '全部',
             'n' => '未提供',
             't' => '是',

@@ -18,12 +18,14 @@ return [
             'browseCategories' => 'Browse Categories',
         ],
         'results' => [
-            'total' => '<b>:total</b> result found.|<b>:total</b> results found.'
+            'count' => '<b>:count</b> result found.|<b>:count</b> results found.',
+            'notfound' => 'Result not found|Results not found'
         ],
         'animal' => [
             'recentPets' => 'Recent Pets',
             'aboutMe' => 'More',
             'watch' => 'Add to favourites',
+            'id' => 'ID',
             'adult' => 'Adult',
             'child' => 'Child',
             'm' => 'Boy|Boys',
@@ -37,6 +39,15 @@ return [
             'big' => 'Big',
             'other' => 'Other',
             'n' => 'Unknown',
+            'foundplace' => 'Found location <b>:location</b>',
+            'status' => [
+                'status' => 'Status',
+                'none' => 'Unknown',
+                'open' => 'Open',
+                'adopted' => 'Adopted :)',
+                'other' => 'Other',
+                'dead' => 'Dead ;(',
+            ],
         ],
     ],
     'general' => [

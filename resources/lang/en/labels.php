@@ -183,6 +183,7 @@ return [
                 'bodytypes' => 'All Body Types',
             ],
             'sterilisation' => 'Sterilisation',
+            'bacterin' => 'Bacterin',
             'all' => 'All',
             'n' => 'Unknown',
             't' => 'Yes',

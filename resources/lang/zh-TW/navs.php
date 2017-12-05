@@ -34,6 +34,7 @@ return [
         'dashboard' => '儀表板',
         'login' => '登入',
         'register' => '註冊',
+        'previous' => '回到上一頁',
 
         'user' => [
             'account' => '我的帳戶',

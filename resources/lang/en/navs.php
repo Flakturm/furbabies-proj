@@ -34,6 +34,7 @@ return [
         'dashboard' => 'Dashboard',
         'login'     => 'Login',
         'register'  => 'Register',
+        'previous' => 'Back to previous page',
 
         'user' => [
             'account'         => 'My Account',
