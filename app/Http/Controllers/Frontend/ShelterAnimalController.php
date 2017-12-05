@@ -9,85 +9,115 @@ use Cache;
 
 class ShelterAnimalController extends Controller
 {
-    /**
-     * Display a resultsing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $shelterAnimal;
+
+    public function __construct(ShelterAnimal $shelterAnimal)
+    {
+        $this->shelterAnimal = $shelterAnimal;
+    }
+
     public function index()
     {
-        ini_set('memory_limit','256M');
         // get latest animals
-        $animals = Cache::remember('shelteranimals_latest', config('cache.time'), function () {
-            return ShelterAnimal::with('shelter.area')
-                                  ->orderBy('update', 'desc')
-                                  ->get()
-                                  ->take(5);
-        });
+        $animals = $this->shelterAnimal->with('shelter.area')
+                                       ->orderBy('update', 'desc')
+                                       ->paginate(5)
+                                       ->take(5);
+
+        session()->forget('result_page');
 
         return view('frontend.index', compact('animals'));
     }
 
-    public function all( Request $request )
+    public function all()
     {
-        $page = $request->has('page') ? $request->query('page') : 1;
+        $page = request()->has('page') ? request('page') : 1;
 
         $animals = Cache::remember('shelteranimals_page_' . $page, config('cache.time'), function () {
-            return ShelterAnimal::with('shelter.area')
-                                ->orderBy('update', 'desc')
-                                ->paginate(20);
+            return $this->shelterAnimal->with('shelter.area')
+                                       ->orderBy('update', 'desc')
+                                       ->paginate(20);
         });
 
-        $total = ShelterAnimal::with('shelter.area')
-                              ->count();
+        $count = $animals->total();
 
-        return view('frontend.shelteranimal.results', compact('animals', 'total'));
+        session()->put('result_page', url()->full());
+
+        return view('frontend.shelteranimal.results', compact('animals', 'count'));
     }
 
-    public function filter( Request $request )
+    public function filter()
     {
-        $query = $request->all();
+        $query = request()->all();
         if ( count( $query ) < 1 )
         {
             return abort(404);
         }
 
-        $animals = ShelterAnimal::with('shelter.area')
-                                ->filter( $query )
-                                ->orderBy('update', 'desc')
-                                ->paginateFilter(20);
-        $total = ShelterAnimal::with('shelter.area')->filter( $query )->count();
+        $url = request()->url();
 
-        return view('frontend.shelteranimal.results', compact('animals', 'query', 'total'));
+        ksort($query);
+
+        $queryString = http_build_query($query);
+
+        $fullUrl = "{$url}?{$queryString}";
+
+        $rememberKey = sha1($fullUrl);
+
+        $animals = Cache::remember($rememberKey, config('cache.time'), function () use ( $query ) {
+            return $this->shelterAnimal->with('shelter.area')
+                                       ->filter( $query )
+                                       ->orderBy('update', 'desc')
+                                       ->paginateFilter(20);
+        });
+        $count = $animals->total();
+
+        // save results url to session
+        session()->put('result_page', url()->full());
+
+        return view('frontend.shelteranimal.results', compact('animals', 'query', 'count'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show( $id )
     {
         $animal = Cache::remember('shelteranimal_' . $id, config('cache.time'), function () use ( $id ) {
-            return ShelterAnimal::with('shelter.area')
-                                ->where('id', '=', $id)
-                                ->first();
+            return $this->shelterAnimal->with('shelter.area')
+                                       ->where('id', '=', $id)
+                                       ->orWhere('animal_id', $id)
+                                       ->first();
         });
 
-        return view('frontend.shelteranimal.single', compact('animal'));
+        $area_id = [];
+
+        if (! is_null ( $animal ) )
+        {
+            $area_id = ['area_id' => $animal->shelter->area->id];
+        }
+
+        $rand_animals = $this->shelterAnimal->with('shelter.area')
+                                            ->filter( $area_id )
+                                            ->orderByRaw('RAND()')
+                                            ->take(8)
+                                            ->get();
+
+        return view('frontend.shelteranimal.single', compact('animal', 'rand_animals'));
     }
 
     public function showAnimalsByShelter( $name )
     {
         $animals = Cache::remember('animalsbyshelter_' . $name, config('cache.time'), function () use ( $name ) {
-            return ShelterAnimal::with('shelter.area')
-                                ->whereHas('shelter', function ( $query ) use ( $name ) {
-                                    $query->where('name', '=', $name);
-                                })
-                                ->get();
+            return $this->shelterAnimal->with('shelter.area')
+                                        ->whereHas('shelter', function ( $query ) use ( $name ) {
+                                            $query->where('name', '=', $name);
+                                        })
+                                        ->paginate(20);
         });
 
-        return view('frontend.shelteranimal.results', compact('animals'));
+        $query = request()->all();
+        $count = $animals->total();
+
+        session()->put('result_page', url()->full());
+
+        return view('frontend.shelteranimal.results', compact('animals', 'query', 'count'));
     }
 }
