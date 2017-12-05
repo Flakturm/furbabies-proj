@@ -8,7 +8,7 @@ class Shelter extends Model
 {
     public function animals()
     {
-        return $this->hasMany('App\ShelterAnimal');
+        return $this->hasMany('App\ShelterAnimal', 'shelter_pkid');
     }
 
     public function area()
