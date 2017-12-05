@@ -8,6 +8,7 @@
 require('../bootstrap');
 window.NProgress = require('nprogress');
 require('select2');
+require('ekko-lightbox');
 
 // Show the progress bar
 NProgress.start();
@@ -28,7 +29,6 @@ function getUrlParameter(name) {
 };
 
 $('img').on('error', function () {
-    $(this).attr('src', '/images/nophoto.jpg');
     axios.post('/image/empty', {
         id: $(this).data('id'),
         page: getUrlParameter('page')
@@ -56,6 +56,13 @@ $(function () {
         }, 800);
         return false;
     });
+
+    // ekko-lightbox
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+
     // select2
     $('.select2').select2({
         // cache: true

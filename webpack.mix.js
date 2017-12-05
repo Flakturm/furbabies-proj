@@ -22,4 +22,5 @@ mix.autoload({
         'popper.js/dist/umd/popper.js': ['Popper']
     })
    .js('resources/assets/js/frontend/app.js', 'public/frontend/js')
-   .sass('resources/assets/sass/frontend/app.scss', 'public/frontend/css');
+   .sass('resources/assets/sass/frontend/app.scss', 'public/frontend/css')
+   .styles(['node_modules/ekko-lightbox/dist/ekko-lightbox.css', 'public/frontend/css/app.css'], 'public/frontend/css/app.css');
