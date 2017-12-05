@@ -15,9 +15,9 @@ class CreateShelterAnimalsTable extends Migration
     {
         Schema::create('shelter_animals', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('animal_id')->unsigned()->unique();
+            $table->unsignedBigInteger('animal_id')->unique();
             $table->string('subid');
-            $table->integer('shelter_pkid')->unsigned();
+            $table->unsignedInteger('shelter_pkid');
             $table->string('place')->nullable();
             $table->enum('kind', ['dog', 'cat', 'other']);
             $table->enum('sex', ['m', 'f', 'n']);
@@ -28,7 +28,7 @@ class CreateShelterAnimalsTable extends Migration
             $table->enum('bacterin', ['t', 'f', 'n']);
             $table->string('foundplace')->nullable();
             $table->string('title')->nullable();
-            $table->enum('status', ['none', 'open', 'apdopted', 'other', 'dead']);
+            $table->enum('status', ['none', 'open', 'adopted', 'other', 'dead']);
             $table->text('remark')->nullable();
             $table->text('caption')->nullable();
             $table->date('opendate');
