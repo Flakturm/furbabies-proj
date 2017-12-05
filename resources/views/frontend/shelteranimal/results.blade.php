@@ -101,7 +101,7 @@
     <section class="container pt-5 pt-sm-0">
         <div class="row mb-3">
             <div class="col d-flex">
-                <span class="ml-auto">@choice('page.frontend.results.total', $total, ['total' => $total])</span>
+                <span class="ml-auto">@choice('page.frontend.results.count', $count, ['count' => $count])</span>
             </div>
         </div>
         @foreach ($animals->chunk(4) as $chunk)
