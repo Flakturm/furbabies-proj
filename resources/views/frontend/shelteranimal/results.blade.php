@@ -112,7 +112,7 @@
                     <div class="card-item-image">
                         <picture class="img-wrapper">
                             <a class="thumb" href="{{ route('shelter.animal', ['id' => $animal->id]) }}">
-                                {{ Html::image($animal->album_file, null, ['data-id' => $animal->id, 'data-src' => asset('images/nophoto.jpg')]) }}
+                                {{ Html::image($animal->album_file, null, ['data-id' => $animal->id, 'onerror' => "this.onerror=null;this.src='" . asset('images/nophoto.jpg') . "';" ]) }}
                             </a>
                         </pitcure>
                     </div>
