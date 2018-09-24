@@ -32,3 +32,48 @@ if (! function_exists('isActiveRoute') )
         if ( Route::currentRouteName() == $route ) return $output;
     }
 }
+
+if (! function_exists('makeJS') )
+{
+    function makeJS( $file )
+    {
+        if ( app()->environment('production') )
+        {
+            return Html::script( secure_asset( mix( $file ) ) );
+        }
+        else
+        {
+            return Html::script( asset( mix( $file ) ) );
+        }
+    }
+}
+
+if (! function_exists('makeCss') )
+{
+    function makeCss( $file )
+    {
+        if ( app()->environment('production') )
+        {
+            return Html::style( secure_asset( mix( $file ) ) );
+        }
+        else
+        {
+            return Html::style( asset( mix( $file ) ) );
+        }
+    }
+}
+
+if (! function_exists('makeImg') )
+{
+    function makeImg( $file, $alt = '', $class = [] )
+    {
+        if ( app()->environment('production') )
+        {
+            return Html::image( secure_asset($file), $alt, $class );
+        }
+        else
+        {
+            return Html::image( asset($file), $alt, $class );
+        }
+    }
+}

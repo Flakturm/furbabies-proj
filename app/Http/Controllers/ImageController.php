@@ -18,7 +18,7 @@ class ImageController extends Controller
         }
         else
         {
-            $shelterAnimal->album_file = asset('images/nophoto.jpg');
+            $shelterAnimal->album_file = 'images/nophoto.jpg';
             $shelterAnimal->save();
 
             if ( request('page') )

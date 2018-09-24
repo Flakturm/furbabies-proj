@@ -214,7 +214,7 @@
             <a href="{{ route('shelter.animal', ['id' => $animal->id]) }}">
                 <div class="row box-shadow ml-md-2 @if ( $key % 2 )my-4 @endif">
                     <div class="col-6 px-0">
-                        {{ Html::image($animal->thumb_file, null, ['data-id' => $animal->id, 'onerror' => "this.onerror=null;this.src='" . asset('images/nophoto.jpg') . "';", 'width' => '320']) }}
+                        {{ makeImg($animal->thumb_file, $animal->subid, ['data-id' => $animal->id, 'onerror' => "this.onerror=null;this.src='" . makeImg('images/nophoto.jpg') . "';" ]) }}
                     </div>
                     <div class="col-6 pt-2">
                         <div class="row">

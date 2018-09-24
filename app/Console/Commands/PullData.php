@@ -89,8 +89,8 @@ class PullData extends Command
                 'closeddate' => $item['animal_closeddate'] ? $item['animal_closeddate'] : null,
                 'update' => $item['animal_update'] ? str_replace('/', '-', $item['animal_update']) : null,
                 'createtime' => $item['animal_createtime'] ? str_replace('/', '-', $item['animal_createtime']) : null,
-                'album_file' => $item['album_file'] ? $item['album_file'] : asset('images/nophoto.jpg'),
-                'thumb_file' => $item['album_file'] ? str_replace('_org', '', $item['album_file']) : null
+                'album_file' => $item['album_file'] ? $item['album_file'] : 'images/nophoto.jpg',
+                'thumb_file' => $item['album_file'] ? str_replace('_org', '', $item['album_file']) : 'images/nophoto.jpg'
             ];
 
             $arr[$key] = $data;

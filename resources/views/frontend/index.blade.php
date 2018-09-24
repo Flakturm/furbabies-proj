@@ -108,7 +108,7 @@
             <div class="row">
                     <picture class="col-12 col-sm-6 mb-4 mb-sm-0 categories">
                         <a href="{{ route('search.shelter.animal', ['kind' => 'cat']) }}">
-                            {{ HTML::image(asset('images/category-cats.jpg'), 'Categories Cats', array('class' => 'rounded transition')) }}
+                            {{ makeImg('images/category-cats.jpg', 'Categories Cats', ['class' => 'rounded transition']) }}
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.cat', 2)</p>
                             </div>
@@ -116,7 +116,7 @@
                     </picture>
                     <picture class="col-12 col-sm-6 categories">
                         <a href="{{ route('search.shelter.animal', ['kind' => 'dog']) }}">
-                            {{ HTML::image(asset('images/category-doggies.jpg'), 'Categories Dogs', array('class' => 'rounded transition')) }}
+                            {{ makeImg('images/category-doggies.jpg', 'Categories Dogs', ['class' => 'rounded transition']) }}
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.dog', 2)</p>
                             </div>

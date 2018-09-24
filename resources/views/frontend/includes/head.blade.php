@@ -14,8 +14,4 @@
 <meta name="description" content="@yield('meta_description', '')">
 <meta name="author" content="@yield('meta_author', 'Yi Shen, Wu')">
 
-@if (app()->environment('production'))
-    {{ Html::style(secure_asset(mix('frontend/css/app.css'))) }}
-@else
-    {{ Html::style(asset(mix('frontend/css/app.css'))) }}
-@endif
+{{ makeCss('frontend/css/app.css') }}
