@@ -44,5 +44,5 @@
     </div>
 </footer>
 <a id="back-to-top" href="#" class="back-to-top text-center" role="button"><i class="fa fa-arrow-up mt-1" aria-hidden="true"></i></a>
-{{-- {{ makeJS('frontend/js/app.js') }} --}}
+{{ makeJS('frontend/js/app.js') }}
 @stack('js_scripts')
