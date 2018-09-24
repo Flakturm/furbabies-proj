@@ -14,9 +14,9 @@
                 <li class="nav-item {{ isActiveRoute('all.shelter.animal') }}">
                     {{ Html::link(route('all.shelter.animal'), __('navs.frontend.shelterPets'), ['class' => 'nav-link']) }}
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     {{ Html::link('about-us', __('navs.frontend.contact'), ['class' => 'nav-link']) }}
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav ml-auto">
                 {{-- @guest
