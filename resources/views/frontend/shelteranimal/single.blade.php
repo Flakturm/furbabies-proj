@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 
 @push('js_scripts')
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyCaxXMj_bujGTv2PQIQBObyX1-VPbPg4Pk" async defer></script>
     <script>
         $(function(){
             @if ( $animal->shelter->address )
@@ -46,7 +47,7 @@
                     <div class="row">
                         <div class="col">
                             <p>
-                                {{ __('page.frontend.animal.createtime') }}: 
+                                {{ __('page.frontend.animal.createtime') }}:
                                 {{ $animal->createtime }}
                             </p>
                         </div>
