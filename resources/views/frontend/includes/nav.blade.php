@@ -19,7 +19,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                @guest
+                {{-- @guest
                 <li class="nav-item my-auto">
                     <a class="nav-link" href="{{ route('login') }}">@lang('navs.frontend.login')/@lang('navs.frontend.register')</a>
                 </li>
@@ -47,7 +47,7 @@
                         </form>
                     </div>
                 </li>
-                @endguest
+                @endguest --}}
                 <li class="nav-item navbar-nav dropdown my-auto">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdownSettingLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @lang('menus.language-picker.language')

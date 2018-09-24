@@ -89,7 +89,7 @@
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                 </div>
                                 <div class="col">
-                                    <small class="text-muted">@lang('page.frontend.animal.updateTime', ['time' => $animal->update->diffForHumans()])</small>
+                                    <small class="text-muted">@lang('page.frontend.animal.updateTime', ['time' => $animal->update])</small>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                     </picture>
                     <picture class="col-12 col-sm-6 categories">
                         <a href="{{ route('search.shelter.animal', ['kind' => 'dog']) }}">
-                            <img src="https://placeimg.com/538/250/animals?t=1510008045988" class="rounded transition" alt="">
+                            {{ HTML::image(asset('images/category-doggies.jpg'), 'Categories Dogs', array('class' => 'rounded transition')) }}
                             <div class="carousel-caption">
                                 <p class="display-3 font-weight-bold mb-0 mb-sm-4 text-shadow">@choice('page.frontend.animal.dog', 2)</p>
                             </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAreasTable extends Migration
+class AddThumbnailToAnimal extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
-            $table->tinyInteger('id');
-            $table->string('name');
+        Schema::table('shelter_animals', function (Blueprint $table) {
+            $table->string('thumb_file')->nullable()->after('album_file');
         });
     }
 
@@ -26,6 +25,8 @@ class CreateAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::table('shelter_animals', function (Blueprint $table) {
+            $table->dropColumn('thumb_file');
+        });
     }
 }

@@ -8,7 +8,7 @@
                 <h5 class="mt-2">@lang('navs.frontend.mainPages')</h5>
                 <ul>
                     <li><a href="{{ url('/') }}">@lang('navs.general.home')</a></li>
-                    <li><a href="{{ route('register') }}">@lang('navs.frontend.register')</a></li>
+                    {{-- <li><a href="{{ route('register') }}">@lang('navs.frontend.register')</a></li> --}}
                 </ul>
             </div>
             <div class="col-sm-2 mb-2">
@@ -21,7 +21,7 @@
             <div class="col-sm-2 mb-2">
                 <h5 class="mt-2">@lang('navs.frontend.links')</h5>
                 <ul>
-                    <li><a href="{{ route('shelters') }}">@lang('navs.frontend.shelters')</a></li>
+                    {{-- <li><a href="{{ route('shelters') }}">@lang('navs.frontend.shelters')</a></li> --}}
                     <li><a href="http://animal.coa.gov.tw/html/index_07.aspx" target="_blank">@lang('navs.frontend.petShops')</a></li>
                 </ul>
             </div>
@@ -45,3 +45,4 @@
 </footer>
 <a id="back-to-top" href="#" class="back-to-top text-center" role="button"><i class="fa fa-arrow-up mt-1" aria-hidden="true"></i></a>
 {{ Html::script(mix('frontend/js/app.js')) }}
+@stack('js_scripts')

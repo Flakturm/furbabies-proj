@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ShelterAnimal;
 use Cache;
+use Cookie;
 
 class ShelterAnimalController extends Controller
 {
@@ -41,9 +42,16 @@ class ShelterAnimalController extends Controller
 
         $count = $animals->total();
 
-        session()->put('result_page', url()->full());
+        // session()->put('result_page', url()->full());
+        // Cookie::queue(Cookie::make('result_page', url()->full(), 60));
+        // Cookie::queue('result_page', url()->full(), 60);
+        // Cookie::queue(Cookie::make('CookieName', 'CookieValue', 60));
+        // cookie(
+        //     'test_basic',
+        //     'The cookie value'
+        // );
 
-        return view('frontend.shelteranimal.results', compact('animals', 'count'));
+        return view('frontend.shelteranimal.results', compact('animals', 'count'))->withCookie(Cookie::make('result_page', url()->full(), 60));
     }
 
     public function filter()
@@ -73,12 +81,16 @@ class ShelterAnimalController extends Controller
         $count = $animals->total();
 
         // save results url to session
-        session()->put('result_page', url()->full());
+        // request()->session()->put('result_page', url()->full());
+        // session(['__previous' => 'abc']);
+        // session(['result_page' => url()->full()]);
+        // Session::put('result_page', 'abc');
+        // $this->returnUrl = url()->full();
 
         return view('frontend.shelteranimal.results', compact('animals', 'query', 'count'));
     }
 
-    public function show( $id )
+    public function show( Request $request, $id )
     {
         $animal = Cache::remember('shelteranimal_' . $id, config('cache.time'), function () use ( $id ) {
             return $this->shelterAnimal->with('shelter.area')

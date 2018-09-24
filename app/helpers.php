@@ -16,7 +16,7 @@ if (! function_exists('app_name') )
     }
 }
 
-if (! function_exists('classActivePath') )
+if (! function_exists('isActiveRoute') )
 {
     /*
     |--------------------------------------------------------------------------

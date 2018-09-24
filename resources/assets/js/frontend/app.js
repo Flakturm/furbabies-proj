@@ -9,6 +9,8 @@ require('../bootstrap');
 window.NProgress = require('nprogress');
 require('select2');
 require('ekko-lightbox');
+import GMaps from 'gmaps';
+window.GMaps = GMaps;
 
 // Show the progress bar
 NProgress.start();
@@ -21,6 +23,28 @@ $(window).on('beforeunload', function (){
     NProgress.start();
 });
 
+window.makeMap = function(address) {
+
+    let map = new GMaps({
+        el: '#map',
+        zoom: 18
+    });
+
+    GMaps.geocode({
+        address: address,
+        callback: function(results, status) {
+            if (status == 'OK') {
+                var latlng = results[0].geometry.location;
+                map.setCenter(latlng.lat(), latlng.lng());
+                map.addMarker({
+                    lat: latlng.lat(),
+                    lng: latlng.lng()
+                });
+            }
+        }
+    });
+}
+
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -29,9 +53,9 @@ function getUrlParameter(name) {
 };
 
 $('img').on('error', function () {
-    axios.post('/image/empty', {
+    axios.post('/api/image/empty', {
         id: $(this).data('id'),
-        page: getUrlParameter('page')
+        page: getUrlParameter('page') ? getUrlParameter('page') : null
     })
     .then(function (response) {
         // console.log(response.message);
@@ -147,4 +171,5 @@ $(function () {
             $('#shelter').append(new_option).trigger('change');
         }
     });
+
 });

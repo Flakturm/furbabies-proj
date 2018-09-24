@@ -27,3 +27,7 @@ $api->version('v1', [
     $api->get('areas', 'AreaController@all');
 
 });
+
+Route::prefix('image')->group(function () {
+    Route::post('empty', 'ImageController@update');
+});

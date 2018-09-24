@@ -167,10 +167,10 @@ return [
         /*
          * Package Service Providers...
          */
-        Collective\Html\HtmlServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        EloquentFilter\ServiceProvider::class,
+        // Collective\Html\HtmlServiceProvider::class,
+        // Laravel\Socialite\SocialiteServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
+        // EloquentFilter\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
-    protected $fillable = [
-        'id', 'name',
-    ];
+    protected $guarded = [];
+
+    public $timestamps = false;
 
     public function shelters()
     {

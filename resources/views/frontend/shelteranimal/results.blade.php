@@ -101,18 +101,18 @@
     <section class="container pt-5 pt-sm-0">
         <div class="row mb-3">
             <div class="col d-flex">
-                <span class="ml-auto">@choice('page.frontend.results.count', $count, ['count' => $count])</span>
+                <span class="ml-auto">{!! __('page.frontend.results.count', ['count' => $count]) !!}</span>
             </div>
         </div>
         @foreach ($animals->chunk(4) as $chunk)
         <div class="card-deck mb-4">
             @foreach ($chunk as $animal)
-            <div class="card col-4 px-0">
+            <div class="card col-md-4 col-sm-12 col-xs-12 px-0">
                 <div class="card-img-top">
                     <div class="card-item-image">
                         <picture class="img-wrapper">
                             <a class="thumb" href="{{ route('shelter.animal', ['id' => $animal->id]) }}">
-                                {{ Html::image($animal->album_file, null, ['data-id' => $animal->id, 'onerror' => "this.onerror=null;this.src='" . asset('images/nophoto.jpg') . "';" ]) }}
+                                {{ Html::image($animal->thumb_file, null, ['data-id' => $animal->id, 'onerror' => "this.onerror=null;this.src='" . asset('images/nophoto.jpg') . "';" ]) }}
                             </a>
                         </pitcure>
                     </div>
@@ -141,7 +141,7 @@
                                         @if ( $animal->colour )
                                             {{ $animal->colour }}
                                         @else
-                                            @lang('page.frontend.animal.unknown')
+                                            @lang('page.general.unknown')
                                         @endif
                                     </small>
                                 </div>
@@ -185,7 +185,7 @@
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                 </div>
                                 <div class="col">
-                                    <small class="text-muted">@lang('page.frontend.animal.updateTime', ['time' => $animal->update->diffForHumans()])</small>
+                                    <small class="text-muted">@lang('page.frontend.animal.updateTime', ['time' => $animal->update])</small>
                                 </div>
                             </div>
                         </div>

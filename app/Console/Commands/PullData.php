@@ -48,7 +48,7 @@ class PullData extends Command
                 // '$filter'   => 'animal_id+like+10306131005002'
             ]
         ];
-        $response = $client->request('GET', env('CLIENT_URI'), $params);
+        $response = $client->request('GET', env('CLIENT_URI'), []);
         $items = json_decode( $response->getBody(), true );
 
         $arr = [];
@@ -85,11 +85,12 @@ class PullData extends Command
                 'status' => strtolower($item['animal_status']),
                 'remark' => $item['animal_remark'],
                 'caption' => $item['animal_caption'],
-                'opendate' => $item['animal_opendate'],
-                'closeddate' => $item['animal_closeddate'],
-                'update' => $item['animal_update'],
-                'createtime' => $item['animal_createtime'],
-                'album_file' => $item['album_file'] ? $item['album_file'] : asset('images/nophoto.jpg')
+                'opendate' => $item['animal_opendate'] ? $item['animal_opendate'] : null,
+                'closeddate' => $item['animal_closeddate'] ? $item['animal_closeddate'] : null,
+                'update' => $item['animal_update'] ? str_replace('/', '-', $item['animal_update']) : null,
+                'createtime' => $item['animal_createtime'] ? str_replace('/', '-', $item['animal_createtime']) : null,
+                'album_file' => $item['album_file'] ? $item['album_file'] : asset('images/nophoto.jpg'),
+                'thumb_file' => $item['album_file'] ? str_replace('_org', '', $item['album_file']) : null
             ];
 
             $arr[$key] = $data;

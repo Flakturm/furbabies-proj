@@ -21,7 +21,6 @@ class CreateSheltersTable extends Migration
             $table->string('email')->nullable();
             $table->text('remark')->nullable();
             $table->tinyInteger('area_id');
-            $table->timestamps();
         });
     }
 

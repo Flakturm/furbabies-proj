@@ -31,10 +31,10 @@ class CreateShelterAnimalsTable extends Migration
             $table->enum('status', ['none', 'open', 'adopted', 'other', 'dead']);
             $table->text('remark')->nullable();
             $table->text('caption')->nullable();
-            $table->date('opendate');
-            $table->date('closeddate');
-            $table->dateTime('update');
-            $table->dateTime('createtime');
+            $table->date('opendate')->nullable();
+            $table->date('closeddate')->nullable();
+            $table->date('update')->nullable();
+            $table->date('createtime')->nullable();
             $table->string('album_file')->nullable();
             $table->timestamps();
         });

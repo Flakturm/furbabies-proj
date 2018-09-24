@@ -25,7 +25,7 @@ return [
             'recentPets' => '最新寵物',
             'aboutMe' => '關於更多的我',
             'watch' => '加入最愛',
-            'id' => '編號',
+            'id' => '收容編號',
             'adult' => '成年',
             'child' => '幼年',
             'm' => '男生',
@@ -40,6 +40,7 @@ return [
             'other' => '其他',
             'n' => '未提供',
             'foundplace' => '在 <b>:location</b> 找到',
+            'createtime' => '入所日期',
             'status' => [
                 'status' => '狀態',
                 'none' => '未提供',
@@ -51,6 +52,7 @@ return [
         ],
     ],
     'general' => [
+        'unknown' => '未提供',
         'viewAll' => '全部',
     ]
 ];

@@ -11,34 +11,11 @@ class ShelterAnimal extends Model
     use Enums;
     use Filterable;
 
-    protected $fillable = [
-        'animal_id',
-        'subid',
-        'shelter_pkid',
-        'place',
-        'kind',
-        'sex',
-        'bodytype',
-        'colour',
-        'age',
-        'sterilization',
-        'bacterin',
-        'foundplace',
-        'title',
-        'status',
-        'remark',
-        'caption',
-        'opendate',
-        'closeddate',
-        'update',
-        'createtime',
-        'album_file'
-    ];
+    protected $guarded = [];
 
     protected $dates = [
         'created_at',
-        'updated_at',
-        'update'
+        'updated_at'
     ];
 
     protected $enumKinds = [
@@ -77,5 +54,10 @@ class ShelterAnimal extends Model
     public function shelter()
     {
         return $this->belongsTo('App\Shelter', 'shelter_pkid');
+    }
+
+    public function getBadgeStatusAttribute()
+    {
+        return $this->status == 'open' ? 'success' : ($this->status == 'dead' ? 'danger' : 'secondary');
     }
 }

@@ -38,8 +38,9 @@ return [
             'medium' => 'Medium',
             'big' => 'Big',
             'other' => 'Other',
-            'n' => 'Unknown',
+            'unknown' => 'Unknown',
             'foundplace' => 'Found location <b>:location</b>',
+            'createtime' => 'Moved in Date',
             'status' => [
                 'status' => 'Status',
                 'none' => 'Unknown',
