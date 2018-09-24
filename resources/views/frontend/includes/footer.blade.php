@@ -44,5 +44,9 @@
     </div>
 </footer>
 <a id="back-to-top" href="#" class="back-to-top text-center" role="button"><i class="fa fa-arrow-up mt-1" aria-hidden="true"></i></a>
-{{ Html::script(mix('frontend/js/app.js')) }}
+@if (app()->environment('production'))
+    {{ Html::script(secure_asset(mix('frontend/js/app.js'))) }}
+@else
+    {{ Html::script(asset(mix('frontend/js/app.js'))) }}
+@endif
 @stack('js_scripts')

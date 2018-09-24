@@ -14,5 +14,8 @@
 <meta name="description" content="@yield('meta_description', '')">
 <meta name="author" content="@yield('meta_author', 'Yi Shen, Wu')">
 
-{{ Html::style(mix('frontend/css/app.css')) }}
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyCaxXMj_bujGTv2PQIQBObyX1-VPbPg4Pk" charset="utf-8"></script>
+@if (app()->environment('production'))
+    {{ Html::style(secure_asset(mix('frontend/css/app.css'))) }}
+@else
+    {{ Html::style(asset(mix('frontend/css/app.css'))) }}
+@endif
